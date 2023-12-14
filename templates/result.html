@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+<div class="w-full flex flex-col justify-center items-center text-center">
+
+    <div class="container">
+        <div class="hero__content">
+            <div class="row justify-content-center">
+                <div class="col-xxl-10 col-xl-11">
+                    <p class="text-xl pt-xl-5 mt-5 sm:text-3xl mt-32 font-[Montserrat] text-white">Thanks for taking the test</p>
+                    <h4 class="text-lg font-[Montserrat] text-white">Your Personality is</h4>
+                    <h1 class="text-3xl sm:text-7xl font-[M ontserrat] text-white uppercase font-black"><span>{{per}}</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-[#4298B4] text-center w-full">
+
+
+
+        <a href="\" type="submit"
+           class="my-5 shadow-xl bg-blue-400 hover:bg-blue-300 text-white font-bold py-2 px-4 border-b-4 border-blue-500 hover:border-blue-400 rounded">
+            Retake Test
+        </a>
+
+        <a href="{{ url_for('learn') }}" type="submit"
+           class="shadow-xl bg-blue-400 hover:bg-blue-300 text-white font-bold py-2 px-4 border-b-4 border-blue-500 hover:border-blue-400 rounded">
+            What Does This Mean?
+        </a>
+
+        <img src=" {{url_for('static', filename='assets/images/charaa.png')}}"
+             class="mt-10 w-full hidden md:block">
+    </div>
+</div>
+
+
+{% endblock %}
