@@ -1,131 +1,122 @@
 {% extends 'base.html' %}
 {% block main %}
 
-<div class="container">
-    <div class="hero__content">
-        <div class="row justify-content-center">
-            <div class="col-xxl-10 col-xl-11">
-                <h3 class="pt-xl-5 mt-5"> Test Questionnaires 4</h3>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div id="test" class="px-10">
     <div class="test-wrap">
         <div class="container">
 
             <form class="form" action="\test" method="post">
-                <div class="flex flex-row -mx-2 mb-4">
-                    <div class="w-full md:w-1/2 px-5 mb-6 md:mb-0">
-
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                               for="grid-first-name">
-                            First Name
-                        </label>
-
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                               id="grid-first-name" type="text" placeholder="Sam" required>
+                <div class="padding-box">
+                    <div class="text-center pb-4">
+                        <h3 class="global-subtitle">Personal Information's</h3>
                     </div>
+                    <div class="row gy-4 gx-4">
+                        <div class="col-lg-6">
+                            <div class="input_group__primary">
+                                <label class="" for="grid-first-name">
+                                    First Name *
+                                </label>
+                                <input class="" id="grid-first-name" type="text" placeholder="Jon" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="input_group__primary">
+                                <label class="" for="grid-last-name">
+                                    Last Name *
+                                </label>
+                                <input class="" id="grid-last-name" type="text" placeholder="Doe" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="input_group__primary">
+                                <label class=""
+                                       for="grid-state">
+                                    Gender *
+                                </label>
+                                <div class="relative">
+                                    <select
+                                            class=""
+                                            id="grid-state" name="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="input_group__primary">
+                                <label class="" for="grid-last-name">
+                                    Age* <i>16 to 29 for accurate results</i>
+                                </label>
 
-                    <div class="w-full md:w-1/2 px-5">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                               for="grid-last-name">
-                            Last Name
-                        </label>
-
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4
-                        leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name"
-                               type="text" placeholder="Chow">
-                    </div>
-                </div>
-
-
-                <div class="w-full md:w-1/2 px-5">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                        Gender
-                    </label>
-                    <div class="relative">
-                        <select
-                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-state" name="gender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap mt-3">
-                    <div class="w-full md:w-1/2 px-5">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                               for="grid-last-name">
-                            Age <br> <i>16 to 29 for accurate results</i>
-                        </label>
-
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4
-                        leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name"
-                               type="number" min="10" max="100" name="age" required>
-                    </div>
-                </div>
-
-
-                <div class="container mt-5">
-                    <div class="hero__content">
-                        <div class="row justify-content-center">
-                            <div class="col-xxl-10 col-xl-11">
-                                <h4 class="pt-1"> Consider The Following Questionnaires & Try to Answer Them
-                                    Accurately</h4>
-                                <h5 class="text-gray hero-disc">Strongly Disagree <-------- Neutral --------> Strongly
-                                    Agree</h5>
+                                <input class="" id="grid-last-name" placeholder="Select your age..." type="number"
+                                       min="10" max="100" name="age" required autocomplete="off">
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="swiper test__slider">
+                <div class="padding-box questions-box mt-5">
+                     <div class="text-center">
+                         <h4 class="global-subtitle pb-5"> Consider The Following Questionnaires & Try to Answer Them
+                                        Accurately</h4>
+                     </div>
+                    <div class="swiper test__slider">
                     <div class="test-scrollbar"></div>
                     <div class="swiper-wrapper">
-
                         <div class="swiper-slide">
                             <div class="slide-content">
                                 <div class="row align-items-center">
                                     <div class="col-lg-6">
-
                                         <div class="question__wrap">
                                             <div class="single-question">
                                                 <label for="#">I am talkative.</label>
-                                                <span id="qsn1">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn001" oninput="rangeSlide('qsn1', this.value)">
+<!--                                              <span id="qsn1">4</span>-->
+                                                <div class="meter-scale">
+                                                    <span>0</span>
+                                                    <span>1</span>
+                                                    <span>2</span>
+                                                    <span>3</span>
+                                                    <span>4</span>
+                                                    <span>5</span>
+                                                    <span>6</span>
+                                                    <span>7</span>
+                                                    <span>8</span>
+                                                </div>
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn001" oninput="rangeSlide('qsn1', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I start conversations.</label>
                                                 <span id="qsn2">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn002" oninput="rangeSlide('qsn2', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn002" oninput="rangeSlide('qsn2', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I am interested in people.</label>
                                                 <span id="qsn3">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn003" oninput="rangeSlide('qsn3', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn003" oninput="rangeSlide('qsn3', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I make people feel at ease.</label>
                                                 <span id="qsn4">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn004" oninput="rangeSlide('qsn4', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn004" oninput="rangeSlide('qsn4', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I feel little concern for others.</label>
                                                 <span id="qsn5">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn005" oninput="rangeSlide('qsn5', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn005" oninput="rangeSlide('qsn5', this.value)">
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="text-center character">
-                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}" alt="">
+                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}"
+                                                 alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -140,33 +131,39 @@
                                             <div class="single-question">
                                                 <label for="#">I am full of ideas.</label>
                                                 <span id="qsn6">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn006" oninput="rangeSlide('qsn6', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn006" oninput="rangeSlide('qsn6', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I am always prepared.</label>
                                                 <span id="qsn7">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn007" oninput="rangeSlide('qsn7', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn007" oninput="rangeSlide('qsn7', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I get irritated easily.</label>
                                                 <span id="qsn8">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn008" oninput="rangeSlide('qsn8', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn008" oninput="rangeSlide('qsn8', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I am always ready to sleep.</label>
                                                 <span id="qsn9">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn009" oninput="rangeSlide('qsn9', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn009" oninput="rangeSlide('qsn9', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I have frequent mood swings.</label>
                                                 <span id="qsn10">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn010" oninput="rangeSlide('qsn10', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn010" oninput="rangeSlide('qsn10', this.value)">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="text-center character">
-                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}" alt="">
+                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}"
+                                                 alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -181,33 +178,40 @@
                                             <div class="single-question">
                                                 <label for="#">I like to seek adventure.</label>
                                                 <span id="qsn11">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn011" oninput="rangeSlide('qsn11', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn011" oninput="rangeSlide('qsn11', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I like to be in charge.</label>
                                                 <span id="qsn12">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn012" oninput="rangeSlide('qsn12', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn012" oninput="rangeSlide('qsn12', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I make a mess of things.</label>
                                                 <span id="qsn13">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn013" oninput="rangeSlide('qsn13', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn013" oninput="rangeSlide('qsn13', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I leave my belongings around.</label>
                                                 <span id="qsn14">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn014" oninput="rangeSlide('qsn14', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn014" oninput="rangeSlide('qsn14', this.value)">
                                             </div>
                                             <div class="single-question">
-                                                <label for="#">I often forget to put things back in their proper place.</label>
+                                                <label for="#">I often forget to put things back in their proper
+                                                    place.</label>
                                                 <span id="qsn15">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn015" oninput="rangeSlide('qsn15', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn015" oninput="rangeSlide('qsn15', this.value)">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="text-center character">
-                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}" alt="">
+                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}"
+                                                 alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -222,40 +226,47 @@
                                             <div class="single-question">
                                                 <label for="#">I follow a schedule.</label>
                                                 <span id="qsn16">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn016" oninput="rangeSlide('qsn16', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn016" oninput="rangeSlide('qsn16', this.value)">
                                             </div>
                                             <div class="single-question">
-                                                <label for="#">I have the strength & patient to overcome failure.</label>
+                                                <label for="#">I have the strength & patient to overcome
+                                                    failure.</label>
                                                 <span id="qsn17">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn017" oninput="rangeSlide('qsn17', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn017" oninput="rangeSlide('qsn17', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I leave today's work for the next day.</label>
                                                 <span id="qsn18">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn018" oninput="rangeSlide('qsn18', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn018" oninput="rangeSlide('qsn18', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I have difficulty understanding abstract ideas.</label>
                                                 <span id="qsn19">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn019" oninput="rangeSlide('qsn19', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn019" oninput="rangeSlide('qsn19', this.value)">
                                             </div>
                                             <div class="single-question">
-                                                <label for="#">I regret after making the decisions most of the time.</label>
+                                                <label for="#">I regret after making the decisions most of the
+                                                    time.</label>
                                                 <span id="qsn20">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8"  name="qsn020" oninput="rangeSlide('qsn20', this.value)">
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn020" oninput="rangeSlide('qsn20', this.value)">
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="text-center character">
-                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}" alt="">
+                                            <img src="{{ url_for('static', filename='assets/images/character/demo-char.jpg') }}"
+                                                 alt="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="swiper-slide">
                             <div class="slide-content">
                                 <div class="row align-items-center">
@@ -265,21 +276,24 @@
                                             <div class="single-question">
                                                 <label for="#">I prefer daydreaming to reality.</label>
                                                 <span id="qsn21">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8" name="qsn021"
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn021"
                                                        oninput="rangeSlide('qsn21', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I like to express immediate mental/emotional
                                                     situations.</label>
                                                 <span id="qsn22">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8" name="qsn022"
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn022"
                                                        oninput="rangeSlide('qsn22', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I prefer to build new relationships rather than
                                                     compromise.</label>
                                                 <span id="qsn23">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8" name="qsn023"
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn023"
                                                        oninput="rangeSlide('qsn23', this.value)">
                                             </div>
                                             <div class="single-question">
@@ -287,14 +301,16 @@
                                                     society
                                                     and everyone could go their own way.</label>
                                                 <span id="qsn24">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8" name="qsn024"
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn024"
                                                        oninput="rangeSlide('qsn24', this.value)">
                                             </div>
                                             <div class="single-question">
                                                 <label for="#">I don't think this kind of test can actually determine my
                                                     personality.</label>
                                                 <span id="qsn25">4</span>
-                                                <input class="range" type="range" value="4" min="0" max="8" name="qsn025"
+                                                <input class="range" type="range" value="4" min="0" max="8"
+                                                       name="qsn025"
                                                        oninput="rangeSlide('qsn25', this.value)">
                                             </div>
                                         </div>
@@ -310,7 +326,6 @@
                                 <button type="submit" class="test-submit slider-btn">Submit Answer</button>
                             </div>
                         </div>
-
                     </div>
                     <div class="d-flex gap-4 justify-content-between"
                          style="max-width: 500px; transform: translateY(-100%);z-index: 20;position: relative;">
@@ -322,6 +337,9 @@
                         </div>
                     </div>
                 </div>
+                </div>
+
+
             </form>
         </div>
     </div>
