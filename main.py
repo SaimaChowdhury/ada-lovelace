@@ -116,9 +116,14 @@ def test():
         )
 
 
+
 @app.route("/learn")
 def learn():
     return render_template("learn.html")
+
+@app.route("/types")
+def types():
+    return render_template("type.html")
 
 
 @app.route("/working")
