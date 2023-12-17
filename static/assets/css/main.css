@@ -1986,9 +1986,7 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   color: var(--color-brand);
 }
 
-body {
-  background-color: #222;
-}
+
 #preloader {
     position: fixed;
     top: 0;
