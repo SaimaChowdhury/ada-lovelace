@@ -117,13 +117,13 @@ def test():
 
 
 
-@app.route("/learn")
-def learn():
-    return render_template("learn.html")
-
 @app.route("/types")
 def types():
-    return render_template("type.html")
+    return render_template("types.html")
+
+@app.route("/type1")
+def type1():
+    return render_template("type1.html")
 
 
 @app.route("/working")
@@ -141,6 +141,8 @@ def not_found_error(error):
 @app.errorhandler(500)
 def internal_error(error):
     return render_template("error.html", code=500, text="Internal Server Error"), 500
+
+
 
 
 if __name__ == "__main__":
