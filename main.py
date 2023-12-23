@@ -125,6 +125,10 @@ def types():
 def type1():
     return render_template("type1.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 
 @app.route("/working")
 def working():
