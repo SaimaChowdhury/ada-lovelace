@@ -1950,7 +1950,7 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
 }
 
 .preloader {
-  background-color: white;
+  background-color: black;
   position: fixed;
   z-index: 1190;
   height: 100%;
