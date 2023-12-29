@@ -123,11 +123,37 @@ def types():
 
 @app.route("/type1")
 def type1():
-    return render_template("type1.html")
+    return render_template("type1-op.html")
+
+@app.route("/type2")
+def type2():
+    return render_template("type2-cns.html")
+
+@app.route("/type3")
+def type3():
+    return render_template("type3-ex.html")
+
+@app.route("/type4")
+def type4():
+    return render_template("type4-ag.html")
+
+@app.route("/type5")
+def type5():
+    return render_template("type5-nu.html")
 
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+@app.route("/faq")
+def faq():
+    return render_template("FAQ.html")
+
+
+@app.route("/contacts")
+def contacts():
+    return render_template("contacts.html")
 
 
 @app.route("/working")
