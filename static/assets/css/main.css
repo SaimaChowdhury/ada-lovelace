@@ -1942,7 +1942,7 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
     padding: 10px;
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     z-index: 20;
 }
 .message__wrap img{
@@ -2057,4 +2057,125 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
         -ms-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+
+
+/*CSS for chatbot*/
+.chatbox__wrap{
+    width: 310px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    weight: 270px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .3s;
+    opacity: 0;
+    z-index: 0;
+    visibility: hidden;
+       transform: scale(0);
+        transform-origin: 100% 100%;
+}
+
+.chatbox__wrap.active__chat{
+        opacity: 1;
+    z-index: 99;
+    visibility: visible;
+    transform: scale(1);
+
+}
+.cx__header{
+    padding: 10px 16px;
+        border-bottom: 1px solid #f1e6e6;
+}
+.cx__avater{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid #6624d029;
+}
+.cx-info h5{
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+.cx-info p{
+    font-size: 13px;
+    color: #A5A7AC;
+    margin-top: 3px;
+}
+.cx__body{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.cx__close{
+    height: 34px;
+    width: 34px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #6624D0;
+}
+.cx__footer{
+    padding: 0 16px;
+    border-top: 1px solid #f1e6e6;
+}
+
+.cx__footer input{
+    padding: 14px 0;
+    font-size: 14px;
+}
+.chat__submit{
+    color: #6624D0;
+}
+
+
+.cx__body{
+   padding: 10px 16px;
+   background: #E9EDEF;
+}
+
+.text-left, .text-right, text__center{
+    margin-top: 12px;
+}
+.text-left > span{
+    font-size: 12px;
+    color: #A5A7AC;
+}
+.text-box-right{
+    padding: 8px 14px;
+    color: #fff;
+    font-size: 14px;
+    background: #6624D0;
+    border-radius: 18px 18px 0px 18px;
+    display: inline-block;
+    text-align: left;
+    margin-left: 10px;
+    }
+
+.text-box-left{
+    padding: 8px 14px;
+    color: #000;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 18px 18px 18px 0;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.text__center{
+     padding: 8px 14px;
+    color: #000;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 18px 18px 18px 18px;
+    display: inline-block;
+    margin-right: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

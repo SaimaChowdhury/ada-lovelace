@@ -105,9 +105,82 @@
 {% endblock %}
 
 
-<a href="#" class="message__wrap">
+<div class="chatbox__wrap" id="chatBox">
+    <div class="cx__header d-flex align-items-center gap-2">
+        <div class="cx__avater flex-shrink-0">
+            <img src="{{ url_for('static', filename='assets/images/character/t2-cns.png') }}" alt="">
+        </div>
+        <div class="cx-info flex-grow-1">
+            <h5>Saima Chowdhury</h5>
+            <p>Your Robot Assistant</p>
+        </div>
+        <button type="button" id="chatClose" class="flex-shrink-0 cx__close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </div>
+    <div class="cx__body">
+
+        <!--  pre-made text block      -->
+        <div class="text-center">
+            <div class="text__center">
+            i'm a pre-made text
+        </div>
+        </div>
+
+        <!--  left text block-->
+        <div class="text-left">
+            <span class="d-block">Saima</span>
+            <div class="text-box-left">
+                How is that tree still standing?
+            </div>
+        </div>
+
+        <!--  Right text block   -->
+        <div class="text-right text-end">
+            <div class="text-box-right">
+During better times, it grew deeper roots. Now it can weather any storm.
+            </div>
+        </div>
+
+         <!--  left text block-->
+        <div class="text-left">
+            <span class="d-block">Saima</span>
+            <div class="text-box-left">
+                😴
+            </div>
+        </div>
+
+
+
+            <!--  Right text block   -->
+        <div class="text-right text-end">
+            <div class="text-box-right">
+                scroll down
+            </div>
+        </div>
+
+          <!--  Right text block   -->
+        <div class="text-right text-end">
+            <div class="text-box-right">
+                scroll down
+            </div>
+        </div>
+
+
+    </div>
+    <div class="cx__footer">
+        <form action="POST" class="d-flex align-items-center">
+            <input type="text" name="" id="" placeholder="Write Here..." class="flex-grow-1">
+            <button type="submit" class="chat__submit flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </form>
+    </div>
+</div>
+
+<button class="message__wrap" type="button" id="openChat">
     <img src="{{ url_for('static', filename='assets/images/icons/message.png') }}" alt="">
-</a>
+</button>
 
 <footer class="footer__style">
     <div class="container">
@@ -210,6 +283,7 @@
 </footer>
 
 
+
 <!-- ============= Custom Cursor ============= -->
 <div class="cursor-dot-outline"></div>
 <div class="cursor-dot"></div>
@@ -244,6 +318,13 @@
             hide: false,
         },
         });
+
+    document.getElementById('openChat').addEventListener('click', ()=>{
+        document.getElementById('chatBox').classList.add('active__chat')
+    })
+    document.getElementById('chatClose').addEventListener('click', ()=>{
+        document.getElementById('chatBox').classList.remove('active__chat')
+    })
 </script>
 
 </body>
