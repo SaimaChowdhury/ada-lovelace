@@ -1895,6 +1895,22 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   color: #edb89c;
 }
 
+.idea__box op {
+  color: #7e53d8;
+}
+.idea__box cns {
+  color: #1FB173;
+}
+.idea__box ex {
+  color: #e25040;
+}
+.idea__box ag {
+  color: #F786BE;
+}
+.idea__box nu {
+  color: #919191;
+}
+
 .novel__characters {
   padding-top: 80px;
   margin-top: 80px;
@@ -1985,7 +2001,6 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
 .spinner-grow {
   color: var(--color-brand);
 }
-
 
 #preloader {
     position: fixed;
