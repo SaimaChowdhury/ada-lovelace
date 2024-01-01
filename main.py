@@ -156,9 +156,9 @@ def contacts():
     return render_template("contacts.html")
 
 
-@app.route("/working")
-def working():
-    return render_template("working.html")
+@app.route("/process")
+def process():
+    return render_template("process.html")
 
 
 # Handling error 404
