@@ -1358,7 +1358,7 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   background: #111337;
   padding: 44px 34px;
   padding-bottom: 40px;
-  height: 400px;
+  height: 380px;
   border-radius: 20px;
   text-align: center;
   transition: all 0.25s;
@@ -2277,4 +2277,22 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   box-shadow: 4px 5px 0px 0px rgba(102, 36, 208, 0.25);
 }
 
+.social{
+	display: flex;
+}
+.social a{
+	width: 45px;
+	height: 45px;
+	display: flex
+	border-radius: 50%;
+	margin: 22px 10px;
+/*	background:  #f9004d;*/
+	color: #875fd9;
+	text-decoration: none;
+	font-size: 30px;
+}
+.social a:hover{
+	transform: scale(1.3);
+	transition: .3s;
+}
 
