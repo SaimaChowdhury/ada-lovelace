@@ -1,6 +1,161 @@
 (function ($) {
   "use strict";
 
+      (function () {
+  $(".js-map-container").mapael({
+    map: {
+      // Set the name of the map to display
+      name : "world_countries",
+      defaultArea: {
+        attrs: {
+          stroke:'#fff',
+          "stroke-width": 0.6,
+          fill: '#E4E4E4'
+        },
+        attrsHover: {
+          fill: '#E4E4E4'
+        }
+      }
+    },
+    legend: {
+      area: {
+        slices: [
+          {
+            sliceValue: "office",
+            attrs: {
+              fill: '#707070'
+            },
+            attrsHover: {
+              fill: '#E62D27'
+            },
+            tooltip: {
+              cssClass: 'mapTooltip--show'
+            },
+            clicked: true
+          }
+        ]
+      }
+    },
+    areas: {
+    "DE": {
+      "value": "office",
+      "continent" : ".continent-europe",
+      "countryIso": ".de",
+      "tooltip": {
+        "content": "Deutschland"
+      }
+    },
+    "EG": {
+      "value": "office",
+      "continent" : ".continent-africa",
+      "countryIso": ".eg",
+      "tooltip": {
+        "content": "Ägypten"
+      }
+    },
+    "DZ": {
+      "value": "office",
+      "continent" : ".continent-africa",
+      "countryIso": ".dz",
+      "tooltip": {
+        "content": "Algerien"
+      }
+    },
+    "CN": {
+      "value": "office",
+      "continent" : ".continent-asia",
+      "countryIso": ".cn",
+      "tooltip": {
+        "content": "China"
+      }
+    },
+    "JP": {
+      "value": "office",
+      "continent" : ".continent-asia",
+      "countryIso": ".jp",
+      "tooltip": {
+        "content": "Japan"
+      }
+    },
+    "AU": {
+      "value": "office",
+      "continent" : ".continent-australia",
+      "countryIso": ".au",
+      "tooltip": {
+        "content": "Australien"
+      }
+    },
+    "NZ": {
+      "value": "office",
+      "continent" : ".continent-australia",
+      "countryIso": ".nz",
+      "tooltip": {
+        "content": "Neuseeland"
+      }
+    },
+    "AR": {
+      "value": "office",
+      "continent" : ".continent-south-america",
+      "countryIso": ".ar",
+      "tooltip": {
+        "content": "<p>Argentinien <br/> test</p>"
+      }
+    },
+    "BR": {
+      "value": "office",
+      "continent" : ".continent-south-america",
+      "countryIso": ".br",
+      "tooltip": {
+        "content": "Brasilien"
+      }
+    },
+    "US": {
+      "value": "office",
+      "continent" : ".continent-north-america",
+      "countryIso": ".us",
+
+      "tooltip": {
+        "content": "USA"
+      }
+    },
+    "MX": {
+      "value": "office",
+      "continent" : ".continent-north-america",
+      "countryIso": ".mx",
+      "tooltip": {
+        "content": "Mexiko"
+      }
+    },
+    "BD": {
+      "value": "office",
+      "continent" : ".continent-asia",
+      "countryIso": ".bd",
+      "tooltip": {
+        "content": "Bangladesh",
+        "statusMessage": "Status: Most of the people are Openness"
+      }
+    },
+    "SA": {
+      "value": "office",
+      "continent" : ".continent-asia",
+      "countryIso": ".sa",
+      "tooltip": {
+        "content": "Saudi Arabia"
+      }
+    },
+    "SE": {
+      "value": "office",
+      "continent" : ".continent-europe",
+      "countryIso": ".se",
+      "tooltip": {
+        "content": "Schweden"
+      }
+    }
+  }
+  });
+})();
+
+
 
   $( function() {
     var handle = $( "#custom-handle" );

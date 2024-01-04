@@ -1,8 +1,18 @@
-#####################################################
 import pandas as pd
 from flask import Flask, render_template, request
 from numpy import *
-from sklearn import linear_model
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+from chatterbot import ChatBot
+from chatterbot.conversation import Statement
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+import time  # for solving AttributeError: module 'time' has no attribute 'clock'
+
+time.clock = time.time  # for solving AttributeError: module 'time' has no attribute 'clock'
+
 #####################################################
 
 app = Flask(__name__)
@@ -10,30 +20,37 @@ app = Flask(__name__)
 #####################################################
 # Loading Dataset Globally
 data = pd.read_csv("ada_dataset_1000.csv")
-array = data.values
 
-for i in range(len(array)):
-    if array[i][0] == "Male":
-        array[i][0] = 1
-    else:
-        array[i][0] = 0
+le_gender = LabelEncoder()
+le_age = LabelEncoder()
+le_personality = LabelEncoder()
 
-df = pd.DataFrame(array)
+data['gender_n'] = le_gender.fit_transform(data['Gender'])
+data['age_n'] = le_age.fit_transform(data['Age'])
+data['personality_n'] = le_personality.fit_transform(data['Personality Type'])
 
-maindf = df[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19, 20, 21, 22, 23, 24, 25, 26]]
-mainarray = maindf.values
+print(data.head(10))
 
-temp = df[27]
-train_y = temp.values
-train_y = temp.values
+X = data[['gender_n', 'age_n', 'Talkative', 'Start Conversations', 'Interested in People', 'Make People Feel at Ease',
+          'concern for others', 'Full of Ideas', 'Always Prepared', 'Get Irritated Easily', 'Always Ready to Sleep',
+          'Frequent Mood Swings',
+          'Seek Adventure', 'Like to Be in Charge', 'Make a Mess of Things', 'Leave Belongings Around',
+          'Forget to Put Things Back', 'Follow a Schedule', 'Overcome Failure',
+          "Leave Today's Work for Next Day", 'Difficulty Understanding Abstract Ideas', 'Regret After Making Decisions',
+          'Prefer Daydreaming to Reality', 'Like to Express Immediate Mental/Emotional Situations',
+          'Prefer to Build New Relationships Rather Than Compromise', 'Think No Rules in Society Would Be Better',
+          "Don't Think This Test Can Determine Personality"]]
 
-for i in range(len(train_y)):
-    train_y[i] = str(train_y[i])
+y = data['personality_n']
 
-mul_lr = linear_model.LogisticRegression(
-    multi_class="multinomial", solver="newton-cg", max_iter=1000
-)
-mul_lr.fit(mainarray, train_y)
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, test_size=.30, random_state=1)
+model = LogisticRegression(max_iter=1000)
+model.fit(Xtrain.values, ytrain.values)  # .values - for solving error X does not have valid feature names
+
+# For chatbot
+chatbot = ChatBot('ChatBot')
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english")
 
 
 #####################################################
@@ -51,14 +68,20 @@ def test():
 
     else:
         age = int(request.form["age"])
-        if age < 16:
-            age = 16
-        elif age > 29:
-            age = 29
+        if age < 17:
+            age = 17
+        elif age > 28:
+            age = 28
+
+        gender = str(request.form["gender"])
+        if (gender == "Female"):
+            gender = 0
+        elif (gender == "Male"):
+            gender = 1
 
         inputdata = [
             [
-                request.form["gender"],
+                gender,
                 age,
                 9 - int(request.form["qsn001"]),
                 9 - int(request.form["qsn002"]),
@@ -89,56 +112,73 @@ def test():
                 9 - int(request.form["qsn023"]),
                 9 - int(request.form["qsn024"]),
                 9 - int(request.form["qsn025"]),
-
             ]
         ]
 
-        for i in range(len(inputdata)):
-            if inputdata[i][0] == "Male":
-                inputdata[i][0] = 1
-            else:
-                inputdata[i][0] = 0
+        dt = pd.DataFrame(inputdata)
+        testdf = dt[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]]
+        testData = testdf.values
 
-        df1 = pd.DataFrame(inputdata)
-        testdf = df1[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19, 20, 21, 22, 23, 24, 25, 26]]
-        maintestarray = testdf.values
+        global per #declare per as a global variable
 
-        y_pred = mul_lr.predict(maintestarray)
-        for i in range(len(y_pred)):
-            y_pred[i] = str((y_pred[i]))
-        DF = pd.DataFrame(y_pred, columns=["Predicted Personality"])
-        DF.index = DF.index + 1
-        DF.index.names = ["Person No"]
+        per = model.predict(testData)
+        if (per == 0):
+            per = "Agreeableness"
+        elif (per == 1):
+            per = "Conscientinousness"
+        elif (per == 2):
+            per = "Extraversion"
+        elif (per == 3):
+            per = "Neuroticism"
+        else:
+            per = "Openness"
 
-        return render_template(
-            "result.html", per=DF["Predicted Personality"].tolist()[0]
-        )
+        return render_template("result.html", per=per)
 
+
+@app.route("/result_details")
+def result_details():
+    if (per == "Agreeableness"):
+        return render_template("type4-ag.html")
+    elif (per == "Conscientinousness"):
+        return render_template("type2-cns.html")
+    elif (per == "Extraversion"):
+        return render_template("type3-ex.html")
+    elif (per == "Neuroticism"):
+        return render_template("type5-nu.html")
+    else:
+        return render_template("type1-op.html")
 
 
 @app.route("/types")
 def types():
     return render_template("types.html")
 
+
 @app.route("/type1")
 def type1():
     return render_template("type1-op.html")
+
 
 @app.route("/type2")
 def type2():
     return render_template("type2-cns.html")
 
+
 @app.route("/type3")
 def type3():
     return render_template("type3-ex.html")
+
 
 @app.route("/type4")
 def type4():
     return render_template("type4-ag.html")
 
+
 @app.route("/type5")
 def type5():
     return render_template("type5-nu.html")
+
 
 @app.route("/about")
 def about():
@@ -160,6 +200,11 @@ def process():
     return render_template("process.html")
 
 
+@app.route("/map")
+def map():
+    return render_template("map.html")
+
+
 # Handling error 404
 @app.errorhandler(404)
 def not_found_error(error):
@@ -172,21 +217,13 @@ def internal_error(error):
     return render_template("error.html", code=500, text="Internal Server Error"), 500
 
 
-
-
-
-
-
-
-
+# Chatbot
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')  # use request.args in a Flask route to access the value of a URL parameter ;
+    # Get the value of the 'msg' parameter from the URL
+    return str(chatbot.get_response(Statement(text=userText, search_text=userText)))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-if __name__ == "__main__":
-    # use 0.0.0.0 for replit hosting
-    app.run(host="0.0.0.0", port=8080)
-
-    # for localhost testing
-    # app.run()
+    app.run()

@@ -1358,6 +1358,7 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   background: #111337;
   padding: 44px 34px;
   padding-bottom: 40px;
+  height: 400px;
   border-radius: 20px;
   text-align: center;
   transition: all 0.25s;
@@ -1673,7 +1674,6 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
   height: 4px;
   background: #A5A7AC;
 }
-
 
 .result__style{
     padding-top: 180px;
@@ -2125,6 +2125,8 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
 .cx__body{
     height: 300px;
     overflow-y: scroll;
+    padding: 10px 16px;
+    background: #E9EDEF;
 }
 
 .cx__close{
@@ -2148,12 +2150,6 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
 }
 .chat__submit{
     color: #6624D0;
-}
-
-
-.cx__body{
-   padding: 10px 16px;
-   background: #E9EDEF;
 }
 
 .text-left, .text-right, text__center{
@@ -2193,4 +2189,92 @@ header .header-defult.sticky .main-nav ul li.has-child-menu:after {
     display: inline-block;
     margin-right: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}}
+
+/* Updated CSS for chatbot*/
+.cx {
+    display: flex;
+    padding: 10px 16px;
+    background: #E9EDEF;
+    overflow-y: scroll;
+    flex-direction: column;
 }
+
+.userText {
+    color: #fff;
+    font-size: 14px;
+    text-align: right;
+}
+
+.userText span {
+    background: #6624D0;
+    padding: 8px 14px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 12px;
+    border-radius: 18px 18px 0px 18px;
+}
+
+.botText {
+    color: #000;
+    font-size: 14px;
+    text-align: left;
+    display: inline-block;
+}
+
+.botText span {
+    background: #fff;
+    padding: 8px 14px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 12px;
+    border-radius: 18px 18px 18px 0;
+}
+
+.office__wrapper-map {
+  margin: 0 auto;
+  max-width: 1500px;
+  width: 100%;
+}
+.office__map-wrapper {
+  aspect-ratio: 2.5;
+  position: relative;
+}
+.office__map-wrapper .mapTooltip {
+  font-size: 16px;
+  line-height: 135%;
+  background-color: rgb(255 255 364.28571429);
+  border-radius: 10px;
+  color: #000;
+  display: none;
+  font-weight: 500;
+  max-width: 200px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1000;
+}
+.office__map {
+  width: 100%;
+}
+
+.btn__types {
+  display: inline-flex;
+  height: 50px;
+  width: 500px;
+  color: #FFF;
+  text-align: center;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 27px */
+  padding: 14px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #6624D0;
+  box-shadow: 4px 5px 0px 0px rgba(102, 36, 208, 0.25);
+}
+
+
